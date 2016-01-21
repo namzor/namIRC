@@ -11,7 +11,6 @@ raw *:*:{
   if ($numeric == 433) {
     if ($istok(%retake.free. [ $+ [ $cid ] ],$2,32)) { tnick $gettok(%retake.free. [ $+ [ $cid ] ],1,32) | set -es %retake.free. [ $+ [ $cid ] ] $deltok(%retake.free. [ $+ [ $cid ] ],1,32) }
     retake $2 $iif($2 == $mnick,1,$iif($2 == $anick,2))
-    retake
   }
  
   ;437 <nick> :Nick/channel is temporarily unavailable
@@ -61,10 +60,10 @@ on *:PARSELINE:*:*:{
  
 alias retake {
   ;/retake <nick> <N>
-  if (!$1) { .ison %retake. [ $+ [ $cid ] ] }
-  else {
-    if (!$istok(%retake. [ $+ [ $cid ] ],$1,32)) { set -es %retake. [ $+ [ $cid ] ] $iif($2 isnum,$instok(%retake. [ $+ [ $cid ] ],$1,$2,32),$addtok(%retake. [ $+ [ $cid ] ],$1,32)) }
-  }
+    if (!$istok(%retake. [ $+ [ $cid ] ],$1,32)) {
+		set -es %retake. [ $+ [ $cid ] ] $iif($2 isnum,$instok(%retake. [ $+ [ $cid ] ],$1,$2,32),$addtok(%retake. [ $+ [ $cid ] ],$1,32))
+		if ($numtok(%retake. [ $+ [ $cid ] ],32)) { .ison %retake. [ $+ [ $cid ] ] }
+	}
 }
  
 alias ison {
