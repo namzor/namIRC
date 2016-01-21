@@ -66,7 +66,7 @@ on *:PARSELINE:*:*:{
  
 alias retake {
   ;/retake <nick> <N>
-  if (!$1) { raw -q .ison %retake. [ $+ [ $cid ] ] }
+  if (!$1) { .ison %retake. [ $+ [ $cid ] ] }
   else {
     if (!$istok(%retake. [ $+ [ $cid ] ],$1,32)) { set -es %retake. [ $+ [ $cid ] ] $iif($2 isnum,$instok(%retake. [ $+ [ $cid ] ],$1,$2,32),$addtok(%retake. [ $+ [ $cid ] ],$1,32)) }
   }
