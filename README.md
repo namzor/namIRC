@@ -1,0 +1,2 @@
+# namIRC
+mIRC code
