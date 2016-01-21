@@ -38,7 +38,7 @@ on *:PARSELINE:*:*:{
  
           ;RETAKE PART
           if ($istok(%retake. [ $+ [ $cid ] ],%n,32)) {
-            if ($findtok(%retake. [ $+ [ $cid ] ],%n,1,32) == 1) || ($numtok(%retake. [ $+ [ $cid ] ],%n,32) == 1) {
+            if ($findtok(%retake. [ $+ [ $cid ] ],%n,1,32) == 1) || ($numtok(%retake. [ $+ [ $cid ] ],32) == 1) {
               unset -s %retake. [ $+ [ $cid ] ] %retake.free. [ $+ [ $cid ] ]
               timerretake. [ $+ [ $cid ] ] off
             }
