@@ -42,7 +42,7 @@ on *:PARSELINE:*:*:{
               unset -s %retake. [ $+ [ $cid ] ] %retake.free. [ $+ [ $cid ] ]
               timerretake. [ $+ [ $cid ] ] off
             }
-            else { set -se %retake. [ $+ [ $cid ] ] $deltok(%retake. [ $+ [ $cid ] ],$findtok(%retake. [ $+ [ $cid ] ],%n,32),32) }
+            else { set -se %retake. [ $+ [ $cid ] ] $deltok(%retake. [ $+ [ $cid ] ],$findtok(%retake. [ $+ [ $cid ] ],%n,1,32),32) }
           }
  
         }
