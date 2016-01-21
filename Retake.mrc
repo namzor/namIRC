@@ -11,8 +11,8 @@ raw *:*:{
   if ($numeric == 433) {
     if ($istok(%retake.free. [ $+ [ $cid ] ],$2,32)) {
       if (%retake.free. [ $+ [ $cid ] ]) {
-        set -es %retake.free. [ $+ [ $cid ] ] $deltok(%retake.free. [ $+ [ $cid ] ],1,32)
         tnick $gettok(%retake.free. [ $+ [ $cid ] ],1,32)
+        set -es %retake.free. [ $+ [ $cid ] ] $deltok(%retake.free. [ $+ [ $cid ] ],1,32)
       }
     }
     retake $2 $iif($2 == $mnick,1,$iif($2 == $anick,2))
