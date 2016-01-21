@@ -3,7 +3,7 @@ raw *:*:{
   if ($numeric == 303) {
     if (%ison.hide. [ $+ [ $cid ] $+ ] . [ $+ [ $hash($2,32) ] ]) { haltdef }
        
-    set -es %retake.free. [ $+ [ $cid ] ] $remove(%retake. [ $+ [ $cid ] ],$replace($2,$chr(32),$chr(44)))
+    set -es %retake.free. [ $+ [ $cid ] ] $remove(%retake. [ $+ [ $cid ] ], [ $replace($2,$chr(32),$chr(44)) ] )
     if ($numtok(%retake.free. [ $+ [ $cid ] ],32)) { tnick $gettok(%retake.free. [ $+ [ $cid ] ],1,32) }
   }
  
